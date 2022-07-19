@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name="C:/Users/ev_ru/IdeaProjects/framework-task">
+        <classes>
+            <class name="test.RequestAccessTest">
+                <methods>
+                    <include name="shouldCreateInstanceWithRegionContainsRegistrationData"/>
+                    <include name="shouldCreateInstanceWithLocalSSDContainsRegistrationData"/>
+                    <include name="shouldCreateInstanceWithCommitmentTermContainsRegistrationData"/>
+                    <include name="shouldCreateInstanceWithEstimatedCostEquals"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
