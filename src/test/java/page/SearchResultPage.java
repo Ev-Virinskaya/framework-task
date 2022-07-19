@@ -25,16 +25,12 @@ public class SearchResultPage extends BasePage {
 
     public CalculatorPage openCalculatorPage() {
         findRelevantResponse().click();
-
         return new CalculatorPage(driver, wait);
     }
 
     private WebElement findRelevantResponse() {
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(ELEMENT_COMMON_SEARCH_RESULT_LOCATOR)));
         List<WebElement> relevantResponses = driver.findElements(By.xpath(elementToFindLocator));
-//        if (relevantResponses == null || relevantResponses.isEmpty()) {
-//            return new HomePageCloud(driver, wait).openPage().searchInfo().findRelevantResponse();
-//        } else {}
             return relevantResponses.get(0);
 
     }
