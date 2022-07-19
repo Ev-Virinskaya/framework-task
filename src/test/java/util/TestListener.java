@@ -31,7 +31,6 @@ public class TestListener implements ITestListener {
     }
 
     public void onTestSkipped(ITestResult iTestResult) {
-        saveScreenshot();
     }
 
     public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
