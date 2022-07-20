@@ -4,16 +4,16 @@ import model.Request;
 
 public class RequestCreator {
     private static final String TESTDATA_SEARCH_REQUEST = "testdata.request.searchRequest";
-    public static final String TESTDATA_NUMBER_OF_INSTANCE = "testdata.request.numberOfInstance";
-    public static final String TESTDATA_OS_TYPE = "testdata.request.osType";
-    public static final String TESTDATA_VM_CLASS = "testdata.request.vmClass";
-    public static final String TESTDATA_SERIES = "testdata.request.series";
-    public static final String TESTDATA_INSTANCE_TYPE = "testdata.request.instanceType";
-    public static final String TESTDATA_GPU_TYPE = "testdata.request.gpuType";
-    public static final String TESTDATA_GPU_NUMBER = "testdata.request.gpuNumber";
-    public static final String TESTDATA_REGION = "testdata.request.region";
-    public static final String TESTDATA_LOCAL_SSD = "testdata.request.localSsd";
-    public static final String TESTDATA_COMMITMENT_TERM = "testdata.request.commitmentTerm";
+    private static final String TESTDATA_NUMBER_OF_INSTANCE = "testdata.request.numberOfInstance";
+    private static final String TESTDATA_OS_TYPE = "testdata.request.osType";
+    private static final String TESTDATA_VM_CLASS = "testdata.request.vmClass";
+    private static final String TESTDATA_SERIES = "testdata.request.series";
+    private static final String TESTDATA_INSTANCE_TYPE = "testdata.request.instanceType";
+    private static final String TESTDATA_GPU_TYPE = "testdata.request.gpuType";
+    private static final String TESTDATA_GPU_NUMBER = "testdata.request.gpuNumber";
+    private static final String TESTDATA_REGION = "testdata.request.region";
+    private static final String TESTDATA_LOCAL_SSD = "testdata.request.localSsd";
+    private static final String TESTDATA_COMMITMENT_TERM = "testdata.request.commitmentTerm";
 
     public static Request withRegDataFromProperty(){
         Request request = new Request();
