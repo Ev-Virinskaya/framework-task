@@ -8,8 +8,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
+import page.CalculatorForm;
 import page.HomePageCloud;
 import page.ResultPage;
+import service.RequestDataCreator;
 import service.RequestCreator;
 import util.TestListener;
 
@@ -25,13 +27,13 @@ public class BaseTest {
     public void setupBrowser() {
         driver = DriverSingleton.getDriver();
         wait = new WebDriverWait(driver, 15);
-        request = RequestCreator.withRegDataFromProperty();
-        resultPage = new HomePageCloud(driver, wait)
+        request = RequestDataCreator.withRegDataFromProperty();
+        CalculatorForm calculatorForm = new HomePageCloud(driver, wait)
                 .openPage()
                 .searchInfo(request)
                 .openCalculatorPage()
-                .switchCalcForm()
-                .fillFields(request);
+                .switchCalcForm();
+        resultPage = RequestCreator.fillFields(request, calculatorForm);
     }
 
     @AfterClass(alwaysRun = true)
