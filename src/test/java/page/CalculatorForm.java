@@ -53,32 +53,13 @@ public class CalculatorForm extends BasePage {
     @FindBy(xpath = "//form[@name='ComputeEngineForm']//button[@aria-label='Add to Estimate']")
     private WebElement addEstimateButton;
 
-
-    public ResultPage fillFields(Request request) {
-        computeEngine.click();
-        input.sendKeys(request.getNumberOfInstance());
-        fillField(softwareField,request, request.getOsType());
-        fillField(VMClassField, request, request.getVmClass());
-        fillField(seriesField, request,request.getSeries());
-        fillField(instanceType,request, request.getInstanceType());
-        addGPUCheckbox.click();
-        fillField(GPUTypeField,request, request.getGpuType());
-        fillField(numberOfGPUField,request, request.getGpuNumber());
-        fillField(localSSDField,request, request.getLocalSsd());
-        fillField(regionField,request, request.getRegion());
-        fillField(usageField,request, request.getCommitmentTerm());
-        addEstimateButton.click();
-
-        return new ResultPage(driver, wait);
-    }
-
     private String buildLocator(Request request, String regData) {
         String firstStringVariable = "";
         if (regData.equals(request.getRegion())) {
             firstStringVariable = REGION_CHOICE_PART_LOCATOR;
-        }else if(regData.equals(request.getGpuNumber())){
+        } else if (regData.equals(request.getGpuNumber())) {
             firstStringVariable = NUMBER_OF_GPU_CHOICE_PART_LOCATOR;
-        }else if (regData.equals(request.getCommitmentTerm())){
+        } else if (regData.equals(request.getCommitmentTerm())) {
             firstStringVariable = USAGE_CHOICE_PART_LOCATOR;
         }
         return String.format(PATTERN_CHOICE_PARAM_LOCATOR, firstStringVariable, regData);
@@ -91,5 +72,69 @@ public class CalculatorForm extends BasePage {
                 .click();
     }
 
+    public CalculatorForm choiceComputeEngine() {
+        computeEngine.click();
+        return this;
+    }
+
+    public CalculatorForm choiceNumberOfInstance(Request request) {
+        input.sendKeys(request.getNumberOfInstance());
+        return this;
+    }
+
+    public CalculatorForm choiceOsType(Request request) {
+        fillField(softwareField, request, request.getOsType());
+        return this;
+    }
+
+    public CalculatorForm choiceVmClass(Request request) {
+        fillField(VMClassField, request, request.getVmClass());
+        return this;
+    }
+
+    public CalculatorForm choiceSeries(Request request) {
+        fillField(seriesField, request, request.getSeries());
+        return this;
+    }
+
+    public CalculatorForm choiceInstanceType(Request request) {
+        fillField(instanceType, request, request.getInstanceType());
+        return this;
+    }
+
+    public CalculatorForm choiceGPUCheckbox() {
+        addGPUCheckbox.click();
+        return this;
+    }
+
+    public CalculatorForm choiceGpuType(Request request) {
+        fillField(GPUTypeField, request, request.getGpuType());
+        return this;
+    }
+
+    public CalculatorForm choiceGpuNumber(Request request) {
+        fillField(numberOfGPUField, request, request.getGpuNumber());
+        return this;
+    }
+
+    public CalculatorForm choiceLocalSsd(Request request) {
+        fillField(localSSDField, request, request.getLocalSsd());
+        return this;
+    }
+
+    public CalculatorForm choiceRegion(Request request) {
+        fillField(regionField, request, request.getRegion());
+        return this;
+    }
+
+    public CalculatorForm choiceCommitmentTerm(Request request) {
+        fillField(usageField, request, request.getCommitmentTerm());
+        return this;
+    }
+
+    public ResultPage getEstimateButton() {
+        addEstimateButton.click();
+        return new ResultPage(driver, wait);
+    }
 
 }
